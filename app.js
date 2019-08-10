@@ -6,8 +6,6 @@ var express = require('express');
 var http = require('http');
 var app = express();
 var server = http.createServer(app);
-const Cryptr = require('cryptr');
-const objCryptr = new Cryptr(config.Kinesis.cryptkey);
 const bodyParser = require('body-parser');
 app.use(bodyParser.json({ extended: true }))
 
