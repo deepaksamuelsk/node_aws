@@ -24,10 +24,7 @@ app.post('/t', function (req, res) {
 
     try {
         var firehose = new AWS.Firehose();
-        var bodyContent = JSON.stringify(req.body);
-        var objRetValid = val.validatejson(req.body);
-
-        if (objRetValid.validjson == true) {
+        var bodyContent = JSON.stringify(req.body);       
         res.contentType = "application/json";
         var params = {
             DeliveryStreamName: config.Kinesis.streamname,
@@ -45,12 +42,7 @@ app.post('/t', function (req, res) {
                     resContent.response = data;
                 }
                 res.send(resContent);
-            });
-        } else {
-            resContent.status = "Error";
-            resContent.response = objRetValid.description;
-            res.send(resContent);
-        }  
+            });      
     }
     catch (ex) {
         resContent.status = "Error";
