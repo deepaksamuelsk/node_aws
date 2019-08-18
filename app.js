@@ -1,6 +1,5 @@
 var config = require('./config');
 var port = process.env.PORT || 3000;
-var val = require('./validation/validation');
 var AWS = require('aws-sdk');
 var express = require('express');
 var http = require('http');
